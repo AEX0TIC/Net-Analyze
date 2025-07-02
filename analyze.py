@@ -33,8 +33,12 @@ def packet_callback(packet):
         else:
             proto = "IP"
 
+        #Display packet info in rich table 
         table = Table(show_header=True,header_style="bold cyan")
         table.add_column("Protocol", style="bold")
         table.add_column("Source IP")
         table.add_column("Destination IP")
+        table.add_column("Length", justify="right")
+        table.add_row(proto,src_ip, dst_ip, str(lenght))
+        console.print(table)
     
