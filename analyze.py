@@ -63,6 +63,8 @@ def update_plot(frame):
 
         if time_stamps and packet_counts:
             plt.plot(time_stamps, packet_counts, color="blue")
+        else:
+            plt.plot([0],[0], color='white')
 
         plt.tight_layout()
 
