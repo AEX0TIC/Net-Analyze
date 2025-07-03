@@ -60,7 +60,10 @@ def update_plot(frame):
         plt.title("Live Packet Count (Packets/sec)")
         plt.xlabel("Time (s)")
         plt.ylabel("Packets")
-        plt.plot(time_stamps, packet_counts, color="blue")
+
+        if time_stamps and packet_counts:
+            plt.plot(time_stamps, packet_counts, color="blue")
+
         plt.tight_layout()
 
 def main():
@@ -71,8 +74,8 @@ def main():
     thread.daemon = True
     thread.start()
 
-    ani = FuncAnimation(plt.gcf(), update_plot, interval=1000)
+    ani = FuncAnimation(plt.gcf(), update_plot, interval=1000, cache_frame_data=False)
     plt.show()
 
-if__name__ == "__main__":
+if __name__ == "__main__":
     main()
