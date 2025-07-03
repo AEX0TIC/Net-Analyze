@@ -67,3 +67,12 @@ def main():
     console.print("[bold green]Starting Network Traffic Analyzer...[/bold green]")
     console.print("[bold yellow]Press CTRL+C to stop.[/bold yellow]")
 
+    thread = threading.Thread(target=start_sniffing)
+    thread.daemon = True
+    thread.start()
+
+    ani = FuncAnimation(plt.gcf(), update_plot, interval=1000)
+    plt.show()
+
+if__name__ == "__main__":
+    main()
