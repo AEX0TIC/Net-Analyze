@@ -39,6 +39,31 @@ def packet_callback(packet):
         table.add_column("Source IP")
         table.add_column("Destination IP")
         table.add_column("Length", justify="right")
-        table.add_row(proto,src_ip, dst_ip, str(lenght))
+        table.add_row(proto,src_ip, dst_ip, str(length))
         console.print(table)
     
+        #Record timestamp for plotting 
+        with lock:
+            now = int(time.time() - start_time)
+        if len(time_stamps) == 0 or now != time_stamps[-1]:
+            time_stamps.append(now)
+            packet_counts.append(1)
+        else:
+            packet_counts[-1] += 1
+
+def start_sniffing():
+    sniff(prn=packet_callback, store=0)
+
+def update_plot(frame):
+    with lock:
+        plt.cla()
+        plt.title("Live Packet Count (Packets/sec)")
+        plt.xlabel("Time (s)")
+        plt.ylabel("Packets")
+        plt.plot(time_stamps, packet_counts, color="blue")
+        plt.tight_layout()
+
+def main():
+    console.print("[bold green]Starting Network Traffic Analyzer...[/bold green]")
+    console.print("[bold yellow]Press CTRL+C to stop.[/bold yellow]")
+
