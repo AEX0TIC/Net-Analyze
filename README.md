@@ -33,8 +33,22 @@ Install dependencies using pip:
 pip install scapy matplotlib rich
 
 ```
-```If using a virtual environment (✅ Recommended):
+If using a virtual environment (✅ Recommended):
+```
 python3 -m venv venv
 source venv/bin/activate
 pip install scapy matplotlib rich
+
+
+```
+
+▶️ How to Run
+
+Navigate to your project folder:
+```
+cd ~/Desktop/net-analyze
+source venv/bin/activate
+sudo python3 analyze.py
+
+
 
