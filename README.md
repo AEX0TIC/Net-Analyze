@@ -1,6 +1,5 @@
-# Net-Analyze
+# Net-Analyze using (Python + Scapy)
 
-# 🕵️ Network Traffic Analyzer (Python + Scapy)
 
 A real-time network traffic analyzer built using Python, designed to capture live packets, display essential packet info in the terminal, and visualize traffic patterns graphically. Perfect for security researchers and networking students using Kali Linux.
 
