@@ -39,8 +39,6 @@ If using a virtual environment (✅ Recommended):
 python3 -m venv venv
 source venv/bin/activate
 pip install scapy matplotlib rich
-
-
 ```
 
 ▶️ How to Run
