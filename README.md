@@ -18,7 +18,9 @@ A real-time network traffic analyzer built using Python, designed to capture liv
 ## 📁 Project Structure
 
 net-analyze/
+
 ├── analyze.py # Main script
+
 └── captured_traffic.pcap # (auto-created on exit)
 
 
